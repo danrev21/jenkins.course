@@ -5,6 +5,8 @@ echo "Build number: $BUILD_NUMBER"
 echo "Git URL: $GIT_URL"
 
 find . -name '*.txt' > files_list
-tar -czvf jobartifact.tar.gz files_list
+tar -czvf jobarchive.tar.gz files_list
 rm files_list 
-# ls -la | grep jobartifact.tar.gz
+a=$(ls -la | grep jobarchive.tar.gz)
+echo "Job artifact: $a"
+# find . -name jobarchive.tar.gz
