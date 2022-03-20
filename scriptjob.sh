@@ -1,11 +1,7 @@
 #!/bin/bash
 
-# echo "Job name: $JOB_NAME"
-# echo "Build number: $BUILD_NUMBER"
-# echo "Git URL: $GIT_URL"
-
-find . -name '*.txt' > files_list
-tar -czvf jobarchive.tar.gz files_list > /dev/null 2>&1
-rm files_list 
-a=$(ls -la | grep jobarchive.tar.gz)
-echo "Job artifact: $a"
+mkdir $JENKINS_HOME/artefacts > /dev/null 2>&1
+tar -czvf build_$BUILD_NUMBER.tar.gz UPLOADED_FILE
+cp build_$BUILD_NUMBER.tar.gz $JENKINS_HOME/artefacts
+rm -rf * > /dev/null 2>&1
+ls $JENKINS_HOME/artefacts
