@@ -1,2 +1,1 @@
-gradle init
 new File("$JENKINS_HOME/artefacts").mkdir()
